@@ -6,6 +6,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack-plugin');
 
+const { appConfig } = require('./base-config');
+
 exports.clean = function(path) {
   return {
     plugins: [
@@ -27,9 +29,18 @@ exports.common = function(paths) {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        title: 'The Wade App'
+        title: appConfig.title
       }),
     ],
+    module: {
+      loaders: [
+      { test: /\.(gif|png|jpg)$/, 
+        loader: 'url-loader?name=[path][name].[ext]&limit=8192'}, // inline base64 URLs for <=8k images, direct URLs for the rest
+      { test: /\.json$/, loader: 'json' },
+      { test: /\.(woff2?|svg)$/, loader: 'url?name=./assets/[hash].[ext]&limit=10000' },
+      { test: /\.(ttf|eot)$/, loader: 'file?name=./assets/[hash].[ext]' },
+      ],
+    }
   }
 }
 
