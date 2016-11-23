@@ -27,6 +27,11 @@ exports.common = function(paths) {
     entry: {
       app: paths.app
     },
+    // Webpack config options on how to obtain modules
+    resolve: {
+      // When requiring, you don't need to add these extensions
+      extensions: ['', '.js', '.jsx', '.md', '.txt']
+    },
     plugins: [
       new HtmlWebpackPlugin({
         title: appConfig.title,
@@ -35,6 +40,12 @@ exports.common = function(paths) {
     ],
     module: {
       loaders: [
+      {
+        test: /\.jsx?$/,
+        loader: 'babel',
+        include: paths.app,
+        exclude: /(node_modules|bower_components)/,
+      },
       { test: /\.(gif|png|jpg)$/, 
         loader: 'url-loader?name=[path][name].[ext]&limit=8192'}, // inline base64 URLs for <=8k images, direct URLs for the rest
       { test: /\.json$/, loader: 'json' },
@@ -80,7 +91,7 @@ exports.devServer = function(options) {
       inline: true,
 
       // Display only errors to reduce the amount of output.
-      stats: 'errors-only',
+      // stats: 'errors-only',
 
       // Parse host and port from env to allow customization.
       // 0.0.0.0 is available to all network devices

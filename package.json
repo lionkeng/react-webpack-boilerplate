@@ -4,7 +4,7 @@
   "description": "Boilerplate Webpack React",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config configs/webpack.dev.config.js",
+    "start": "webpack-dev-server --config configs/webpack.dev.config.js --progress --colors --watch",
     "build": "webpack -p --config configs/webpack.build.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,6 +21,13 @@
   "author": "klim",
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
     "bootstrap-sass": "^3.3.7",
     "css-loader": "^0.26.0",
     "file-loader": "^0.9.0",
