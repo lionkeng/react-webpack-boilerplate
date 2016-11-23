@@ -8,7 +8,10 @@ module.exports = {
     app: path.resolve(pathElements.dir, 'app'),
     build: path.resolve(pathElements.dir, 'build')
   },
-  pkg: require(path.resolve(pathElements.dir, 'package.json'))
+  pkg: require(path.resolve(pathElements.dir, 'package.json')),
+  appConfig: {
+    title: 'My App',
+  }
 };
 
 
