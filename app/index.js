@@ -1,6 +1,13 @@
-require('./stylesheets/app.scss');
-require('./stylesheets/bootstrap.scss');
+//require('./stylesheets/app.scss');
+//require('./stylesheets/bootstrap.scss');
 
-var component = require('./components/MyComponent');
+import './stylesheets/bootstrap.scss'
+import './stylesheets/app.scss'
+import React from 'react'
+import { render } from 'react-dom'
 
-document.body.appendChild(component());
+import Stage from './stage'
+
+const root = document.getElementById('stage');
+
+render ((<Stage />), root );
