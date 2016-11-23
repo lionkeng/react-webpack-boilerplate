@@ -29,7 +29,8 @@ exports.common = function(paths) {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        title: appConfig.title
+        title: appConfig.title,
+        template: 'app/html-template.ejs'
       }),
     ],
     module: {
