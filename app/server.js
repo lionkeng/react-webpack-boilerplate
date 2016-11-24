@@ -1,7 +1,7 @@
 // server.js
 const express = require('express')
 const path = require('path')
-const port = process.env.PORT || 8000
+const port = process.env.PORT || 5050
 const app = express()
 
 const pathElements = path.parse(__dirname);
