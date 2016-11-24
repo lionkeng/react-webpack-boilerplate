@@ -6,8 +6,8 @@ import './stylesheets/app.scss'
 import React from 'react'
 import { render } from 'react-dom'
 
-import Stage from './stage'
+import App from './app'
 
 const root = document.getElementById('stage');
 
-render ((<Stage />), root );
+render ((<App />), root );
