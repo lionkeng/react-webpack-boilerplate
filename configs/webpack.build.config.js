@@ -10,7 +10,7 @@ const options = { host: 'localhost', port: 5050 };
 const config = merge(clean(PATHS.build),
                      setFreeVar('process.env.NODE_ENV', 'production'),
                      common(PATHS), 
-                     outputProd(PATHS),
+                     outputProd(),
                      extractBundle({name: 'vendor', 
                       entries: Object.keys(pkg.dependencies)}),
                      minify(),                     
