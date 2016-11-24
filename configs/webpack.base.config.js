@@ -34,6 +34,7 @@ exports.common = function(paths) {
     },
     output: {
       path: paths.build,
+      publicPath: '/',
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -62,7 +63,6 @@ exports.common = function(paths) {
 exports.outputDev = function(bundleName) {
   return {
     output: {
-      publicPath: '/',
       filename: `${bundleName}.[hash].js`
     },
   };
@@ -71,7 +71,6 @@ exports.outputDev = function(bundleName) {
 exports.outputProd = function() {
   return {
     output: {
-      publicPath: '/',
       filename: '[name].[chunkhash].js',
       chunkFilename: '[chunkhash].js'
     },    
