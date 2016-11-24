@@ -71,6 +71,7 @@ exports.outputDev = function(bundleName) {
 exports.outputProd = function() {
   return {
     output: {
+      publicPath: '/',
       filename: '[name].[chunkhash].js',
       chunkFilename: '[chunkhash].js'
     },    
