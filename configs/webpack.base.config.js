@@ -32,6 +32,9 @@ exports.common = function(paths) {
       // When requiring, you don't need to add these extensions
       extensions: ['', '.js', '.jsx', '.md', '.txt']
     },
+    output: {
+      path: paths.build,
+    },
     plugins: [
       new HtmlWebpackPlugin({
         title: appConfig.title,
@@ -56,25 +59,23 @@ exports.common = function(paths) {
   }
 }
 
-exports.outputDev = function(paths) {
+exports.outputDev = function(bundleName) {
   return {
     output: {
-      path: paths.build,
-      filename: '[name].[hash].js'
+      publicPath: '/',
+      filename: `${bundleName}.[hash].js`
     },
   };
 }
 
-exports.outputProd = function(paths) {
+exports.outputProd = function() {
   return {
     output: {
-      path: paths.build,
       filename: '[name].[chunkhash].js',
       chunkFilename: '[chunkhash].js'
     },    
   };
 }
-
 
 // dev server config
 exports.devServer = function(options) {
